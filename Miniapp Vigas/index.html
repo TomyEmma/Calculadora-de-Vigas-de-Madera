@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppWeb - Diseño Estructural de Vigas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <h1>Calculadora de Vigas de Madera (NCh 1198)</h1>
+        <div class="user-info">
+            <p class="user-name"><strong>Estudiante:</strong> Martín Acevedo Sepúlveda</p>
+            <p class="user-career"><strong>Carrera:</strong> Ingeniería en Construcción</p>
+            <p class="user-project"><strong>Proyecto:</strong> Automatización de Diseño Estructural en Madera</p>
+        </div>
+        
+        <section class="input-section">
+            <h2>Datos de la Viga</h2>
+            
+            <div class="input-group">
+                <label for="base">Base de la viga (b) [mm]:</label>
+                <input type="number" id="base" value="45">
+            </div>
+
+            <div class="input-group">
+                <label for="altura">Altura de la viga (h) [mm]:</label>
+                <input type="number" id="altura" value="190">
+            </div>
+
+            <div class="input-group">
+                <label for="humedad">Humedad de servicio (Hs) [%]:</label>
+                <input type="number" id="humedad" value="14">
+            </div>
+
+            <div class="input-group">
+                <label for="cargaMuerta">Carga Muerta (D) [kg/m²]:</label>
+                <input type="number" id="cargaMuerta" value="50">
+            </div>
+
+            <div class="input-group">
+                <label for="cargaViva">Carga Viva de Piso (Lf) [kg/m²]:</label>
+                <input type="number" id="cargaViva" value="200">
+            </div>
+
+            <label for="luz">Luz de la viga (L) [m]: <span id="luzVal">4.0</span> m</label>
+            <input type="range" id="luz" min="1.0" max="8.0" step="0.1" value="4.0">
+
+            <div class="input-group">
+                <label for="espaciamiento">Espaciamiento (e) [mm]: <span id="espaciamientoVal">488</span> mm</label>
+                <input type="range" id="espaciamiento" min="200" max="1000" step="10" value="488">
+            </div>
+        </section>
+
+        <section class="results-section">
+            <h2>Estados Límite de Verificación</h2>
+            
+            <div id="card-flexion" class="result-card state-pending">
+                <h3>Flexión</h3>
+                <p id="txt-flexion">Esperando cálculos...</p>
+            </div>
+
+            <div id="card-corte" class="result-card state-pending">
+                <h3>Corte (Cizalle)</h3>
+                <p id="txt-corte">Esperando cálculos...</p>
+            </div>
+
+            <div id="card-deflexion" class="result-card state-pending">
+                <h3>Deflexión (Deformación)</h3>
+                <p id="txt-deflexion-tot">Total (L/300): -</p>
+                <p id="txt-deflexion-viva">Sobrecarga (L/360): -</p>
+            </div>
+        </section>
+
+        <section class="latex-section">
+            <h2>Memoria Técnica (LaTeX)</h2>
+            <textarea id="latex-output" readonly rows="8" placeholder="El código LaTeX aparecerá aquí de forma automática..."></textarea>
+            <button id="btn-copy">Copiar Código LaTeX</button>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
